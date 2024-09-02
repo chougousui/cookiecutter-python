@@ -1,0 +1,16 @@
+[tool.ruff]
+line-length = 120
+# exclude default value:  https://docs.astral.sh/ruff/settings/#exclude
+# exclude = [".venv", "README.md"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "S", "B", "A", 'Q']
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]        # In the init file, you can just import without using
+
+# Ruff will read isort's configuration to determine how to format the imports
+[tool.isort]
+profile = "black"
+line_length = 120
