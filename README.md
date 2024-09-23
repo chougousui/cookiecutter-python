@@ -16,3 +16,9 @@ Powered by [Cookiecutter](https://github.com/audreyr/cookiecutter).
 ```shell
 cookiecutter https://github.com/chougousui/cookiecutter-python.git
 ```
+
+### Requirements
+
+- git
+- pre-commit
+- rye(如果使用rye)
