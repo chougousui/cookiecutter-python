@@ -72,7 +72,7 @@ def first_commit():
     1. git commit
     """
     subprocess.check_call(["git", "add", "."])
-    subprocess.check_call(["git", "commit", "-m", "'first commit'"])
+    subprocess.check_call(["git", "commit", "-m", "first commit"])
 
 
 if __name__ == "__main__":
