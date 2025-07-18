@@ -2,7 +2,7 @@
 line-length = 120
 # exclude default value:  https://docs.astral.sh/ruff/settings/#exclude
 # exclude = [".venv", "README.md"]
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "S", "B", "A", 'Q']
@@ -14,3 +14,7 @@ select = ["E", "F", "W", "I", "S", "B", "A", 'Q']
 [tool.isort]
 profile = "black"
 line_length = 120
+
+[tool.mypy]
+python_version="3.13"
+strict = true
