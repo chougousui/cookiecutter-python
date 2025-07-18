@@ -1,0 +1,39 @@
+[tool.ruff]
+line-length = 120
+# exclude default value:  https://docs.astral.sh/ruff/settings/#exclude
+# exclude = [".venv", "README.md"]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "S", "B", "A", 'Q']
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]        # In the init file, you can just import without using
+
+# Ruff will read isort's configuration to determine how to format the imports
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.pyright]
+pythonVersion = "3.13"
+typeCheckingMode = "strict"
+include = ["src"]
+exclude = ["**/__pycache__", "**/.venv"]
+
+{% if cookiecutter.use_rye -%}
+# Rye 脚本配置
+[tool.rye.scripts]
+# 格式化检查（不修复）
+"format:check" = "ruff format --check ."
+# 代码检查（不修复）
+lint = "ruff check ."
+# 类型检查
+typecheck = "pyright"
+# 修复步骤（内部脚本）
+"lint:fix" = "ruff check --fix ."
+"typos:fix" = "typos --write-changes ."
+"format" = "ruff format ."
+# 一键修复所有问题
+fixall = { chain = ["lint:fix", "typos:fix", "format"] }
+{% endif -%}
